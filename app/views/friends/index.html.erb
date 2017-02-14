@@ -1,0 +1,8 @@
+<h1>Friend List: </h1>
+
+<% @friends.each do |friend| %>
+  <%= friend['first_name'] %><br>
+  <%= friend['last_name'] %><br>
+  <%= friend['birthday'] %><br>
+  <%= friend['cat_name'] %><br>
+<% end %>
