@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   post '/friends' => 'friends#create'
   get '/friends/:id/edit' => 'friends#edit'
   patch '/friends/:id' => 'friends#update'
-  delete '/friend/:id' => 'friends#destroy'
   get '/friends/:id' => 'friends#show'
+  delete '/friends/:id' => 'friends#destroy'
 
 
 end

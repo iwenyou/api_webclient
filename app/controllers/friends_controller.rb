@@ -44,8 +44,12 @@ class FriendsController < ApplicationController
   end
 
   def destroy
+
+    id = params[:id]
+
     @friend = Unirest.delete("http://localhost:3000/api/v1/friends/#{id}").body
 
-    render '/index'
+    redirect_to "/friends/#{@friend['id']}"
+
   end
 end
