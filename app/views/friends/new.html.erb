@@ -1,0 +1,14 @@
+<h1>Create Friend</h1>
+
+<%= form_tag '/friends' do %>
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+
+  <%= label_tag :cat_name %>
+  <%= text_field_tag :cat_name %>
+
+  <%= submit_tag "Create Friend" %>
+<% end %>
