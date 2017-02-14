@@ -1,0 +1,14 @@
+<h1>Modify Friend</h1>
+
+<%= form_tag "/friends/#{@id}", :method => :patch do %>
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+
+  <%= label_tag :cat_name %>
+  <%= text_field_tag :cat_name %>
+
+  <%= submit_tag "Modify Friend" %>
+<% end %>

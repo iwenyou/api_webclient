@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/friends' => 'friends#index'
   get '/friends/new' => 'friends#new'
   post '/friends' => 'friends#create'
-  get '/friends/:id/edit' => 'friend#edit'
+  get '/friends/:id/edit' => 'friends#edit'
   patch '/friends/:id' => 'friends#update'
   delete '/friend/:id' => 'friends#destroy'
   get '/friends/:id' => 'friends#show'
