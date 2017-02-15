@@ -15,11 +15,7 @@ class FriendsController < ApplicationController
 
   def show
 
-    id = params[:id]
-
-    friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
-
-    @friend = Friend.new(friend_hash)
+    @friend = Friend.find(params[:id])
 
   end
 

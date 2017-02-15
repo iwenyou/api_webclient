@@ -10,4 +10,20 @@ class Friend
     @cat_name = hash['cat_name']
   end
 
+  def friendly_birthday
+
+    birthdate = Date.parse(@birthday)
+
+    birthdate.strftime("%b %d, %Y")
+
+  end
+
+  def self.find(id)
+
+    friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
+
+    Friend.new(friend_hash)
+
+  end
+
 end
