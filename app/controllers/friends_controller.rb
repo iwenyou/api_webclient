@@ -1,4 +1,6 @@
 class FriendsController < ApplicationController
+
+
   def index
 
     @friends = Unirest.get("http://localhost:3000/api/v1/friends").body
