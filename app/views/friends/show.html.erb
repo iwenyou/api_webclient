@@ -1,7 +1,5 @@
 <h2>Friend: </h2>
 
-Full Name: <%= @friend['first_name'] %> <%= @friend['last_name'] %>
-Birthday: <%= @friend['birthday'] %>
-Cat's Name: <%= @friend['cat_name'] %>
-
-<%= button_to "Delete", @friend, method: :delete %>
+Full Name: <%= @friend.first_name %> <%= @friend.last_name %>
+Birthday: <%= @friend.birthday %>
+Cat's Name: <%= @friend.cat_name %>

@@ -3,7 +3,13 @@ class FriendsController < ApplicationController
 
   def index
 
-    @friends = Unirest.get("http://localhost:3000/api/v1/friends").body
+    @friends = []
+
+    friends_array = Unirest.get("http://localhost:3000/api/v1/friends").body
+
+    friends_array.each do |friend_hash|
+      @friends << Friend.new(friend_hash)
+    end
 
   end
 
@@ -11,7 +17,9 @@ class FriendsController < ApplicationController
 
     id = params[:id]
 
-    @friend = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
+    friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
+
+    @friend = Friend.new(friend_hash)
 
   end
 
