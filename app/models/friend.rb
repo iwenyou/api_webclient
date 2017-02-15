@@ -14,7 +14,7 @@ class Friend
 
     friends = []
 
-    friends_array = Unirest.get("http://localhost:3000/api/v1/friends").body
+    friends_array = Unirest.get("http://localhost:3000/api/v1/friends", :header => {"X-User-Email" => "test@test.com","Authorization" => "Token token=abc"}).body
 
     friends_array.each do |friend_hash|
       friends << Friend.new(friend_hash)
@@ -26,7 +26,7 @@ class Friend
 
   def self.find(id)
 
-    friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
+    friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}", :header => {"X-User-Email" => "test@test.com","Authorization" => "Token token=abc"}).body
 
     Friend.new(friend_hash)
 
@@ -34,7 +34,7 @@ class Friend
 
   def self.destroy(id)
 
-    Unirest.delete("http://localhost:3000/api/v1/friends/#{id}").body
+    Unirest.delete("http://localhost:3000/api/v1/friends/#{id}", :header => {"X-User-Email" => "test@test.com","Authorization" => "Token token=abc"}).body
 
   end
 
