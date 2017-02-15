@@ -10,11 +10,17 @@ class Friend
     @cat_name = hash['cat_name']
   end
 
-  def friendly_birthday
+  def self.all
 
-    birthdate = Date.parse(@birthday)
+    friends = []
 
-    birthdate.strftime("%b %d, %Y")
+    friends_array = Unirest.get("http://localhost:3000/api/v1/friends").body
+
+    friends_array.each do |friend_hash|
+      friends << Friend.new(friend_hash)
+    end
+
+    friends
 
   end
 
@@ -23,6 +29,20 @@ class Friend
     friend_hash = Unirest.get("http://localhost:3000/api/v1/friends/#{id}").body
 
     Friend.new(friend_hash)
+
+  end
+
+  def self.destroy(id)
+
+    Unirest.delete("http://localhost:3000/api/v1/friends/#{id}").body
+
+  end
+
+  def friendly_birthday
+
+    birthdate = Date.parse(@birthday)
+
+    birthdate.strftime("%b %d, %Y")
 
   end
 

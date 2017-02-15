@@ -3,13 +3,7 @@ class FriendsController < ApplicationController
 
   def index
 
-    @friends = []
-
-    friends_array = Unirest.get("http://localhost:3000/api/v1/friends").body
-
-    friends_array.each do |friend_hash|
-      @friends << Friend.new(friend_hash)
-    end
+    @friends = Friend.all
 
   end
 
@@ -51,9 +45,9 @@ class FriendsController < ApplicationController
 
   def destroy
 
-    id = params[:id]
+    @id = params[:id]
 
-    @friend = Unirest.delete("http://localhost:3000/api/v1/friends/#{id}").body
+    Friend.destroy(@id)
 
     redirect_to "/friends/#{@friend['id']}"
 
